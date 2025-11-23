@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yoai Studio</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="PaviconYoai.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="PaviconYoai.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="PaviconYoai.png">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+      
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, sans-serif;
+      background-image: url('artttttyoai.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 100px 20px 40px;
+      box-sizing: border-box;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section h1,
+    .section h2,
+    .section p {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    #home {
+      background: transparent;
+    }
+
+    #games {
+      background-color: #0a1419;
+      justify-content: flex-start;
+      padding-top: 180px;
+    }
+
+    #about {
+      background-color: #0a1419;
+      justify-content: flex-start;
+      padding-top: 160px;
+    }
+
+    /* BARRR */
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0);
+      padding: 10px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      z-index: 99999;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: -15px;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 10px;
+      margin-right: 40px;
+    }
+
+    .nav-logo {
+      width: 50px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .nav-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: transparent;
+      color: white;
+      transform: scale(1);
+      transition: 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-btn:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      transform: scale(1.08);
+    }
+
+    /* HOME */
+
+    .home-hero {
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      padding-top: 140px;
+      padding-left: clamp(20px, 8vw, 110px);
+      padding-right: 20px;
+    }
+
+    .hero-label {
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #b0e6ff;
+      margin: 0 0 6px;
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      margin: 0 0 8px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.9);
+      opacity: 0;
+      animation: slideInLeft 0.75s ease-out forwards;
+    }
+
+    .hero-title span {
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e0e0e0;
+      margin: 0 0 16px;
+      opacity: 0;
+      animation: slideUpFade 0.85s ease-out 0.25s forwards;
+    }
+
+    .hero-subtitle span {
+      font-weight: 600;
+      color: #80d8ff;
+    }
+
+    /* OUR GAMES */
+
+    .games-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+
+    .games-title {
+      font-size: 28px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+    }
+
+    .game-card {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .game-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .game-info h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .game-info p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: #d0d0d0;
+      max-width: 420px;
+    }
+
+    .game-card,
+    .game-info {
+      text-align: left;
+    }
+
+    .play-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #00c853;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .play-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+      background: #00e676;
+    }
+
+    .fade-strip {
+      height: 250px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.04) 12%,
+        rgba(0,0,0,0.08) 22%,
+        rgba(0,0,0,0.15) 34%,
+        rgba(0,0,0,0.25) 48%,
+        rgba(0,0,0,0.38) 62%,
+        rgba(0,0,0,0.52) 74%,
+        rgba(0,0,0,0.70) 88%,
+        #0a1419 100%
+      );
+    }
+
+    /* ABOUT */
+
+    .about-wrapper {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-text {
+      max-width: 620px;
+      margin: 14px auto 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #d0d0d0;
+    }
+
+    .divider {
+      width: 100%;
+      max-width: 500px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.25);
+      margin: 30px auto;
+    }
+
+    /* ANIMASI */
+
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /*  RESPONSIVE  */
+
+    @media (max-width: 768px) {
+      .home-hero {
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-content {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-left">
+      <img src="YOAI.png" class="nav-logo" alt="Yoai Studio Logo">
+      <span>Yoa! Studio</span>
+    </div>
+
+    <div class="nav-right">
+      <button onclick="goHome()" class="nav-btn">HOME</button>
+      <button onclick="goGames()" class="nav-btn">GAMES</button>
+      <button onclick="goAbout()" class="nav-btn">ABOUT</button>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <section id="home" class="section home-hero">
+    <div class="hero-content">
+      <p class="hero-label">COMING SOON</p>
+
+      <h1 class="hero-title">
+        <span>Starling Coffee:</span><br>
+        <span>Tycoon</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Will be available on Google Play<br>
+        on <span>5 December 2025</span>
+      </p>
+    </div>
+  </section>
+
+  <!--TRANSISI-->
+  <div class="fade-strip"></div>
+
+  <!-- OUR GAMES -->
+  <section id="games" class="section">
+    <div class="games-wrapper">
+      <h2 class="games-title">Our Games</h2>
+
+      <div class="game-card">
+        <img src="loading screen.png" alt="Starling Coffee: Tycoon" class="game-thumb">
+
+        <div class="game-info">
+          <h3>Starling Coffee: Tycoon</h3>
+          <p>A simulation game about selling street coffee in the nusantara.</p>
+
+          <a href="https://play.google.com/store/apps/details?id=com.yoaistudio.starlingcoffee"
+             target="_blank"
+             class="play-btn">
+            Early Access On Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="about-wrapper">
+      <h2 class="games-title">ABOUT US</h2>
+
+      <p class="about-text">
+        Yoai Studio is an indie game studio that focuses on creating simple, fun gaming experiences with a local touch.
+        We believe that games can feel close to players if they have strong characters, relatable stories, and visually appealing graphics.
+      
+      </p>
+
+      <div class="divider"></div>
+
+      <h3 style="margin-top:5px;">FOLLOW US</h3>
+      <p class="about-text">
+        <a href="https://www.instagram.com/yoai.studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+           target="_blank"
+           style="color: #80d8ff; text-decoration: none;">
+          Instagram: @yoai.studio
+        </a>
+      </p>
+
+      <div class="divider"></div>
+
+      <h3 style="margin-top:10px;">LEGAL</h3>
+      <p class="about-text">
+        <a href="https://yoaistudio.blogspot.com/2025/11/privacy-policy.html"
+           style="color:#80d8ff; text-decoration:none;">
+          Privacy Policy
+        </a>
+        <br>
+        <a href="#"
+           style="color:#80d8ff; text-decoration:none;">
+          Terms &amp; Conditions
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    function goHome() {
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function goGames() {
+      document.getElementById("games").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function goAbout() {
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>
