@@ -28,6 +28,11 @@
       scroll-behavior: smooth;
     }
 
+    /* FIX GLOBAL: padding nggak bikin width > 100% (ngilangin crop kanan) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -36,6 +41,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      background-color: #0a1419; /* ⬅️ TAMBAHAN: warna dasar sama kayak section gelap */
       color: white;
       text-align: center;
     }
@@ -90,7 +96,6 @@
       align-items: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
       z-index: 99999;
     }
 
@@ -207,7 +212,6 @@
       transform: translateY(-10px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
       padding: 10px 20px;
     }
 
@@ -218,7 +222,6 @@
       padding: 18px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -337,20 +340,10 @@
     /* RESPONSIVE */
 
     @media (max-width: 768px) {
-      /* MATIKAN BG DI BODY → PINDAH KE HERO */
       body {
-        background-image: none;
-        background-color: #050810;
+        /* mobile: ga pakai fixed, posisi lebih turun biar ga cuma langit */
         background-attachment: scroll;
-        overflow-x: hidden;
-      }
-
-      /* HERO PAKAI BG SENDIRI, BISA DI-ZOOM DI SINI */
-      #home {
-        background-image: url('artttttyoai.png');
-        background-repeat: no-repeat;
-        background-size: 120% auto;      /* zoom DIKIT, tinggal ganti 115–130% kalau mau halus */
-        background-position: center 20%; /* geser dikit ke bawah biar gak langit doang */
+        background-position: center 40%; /* geser dikit ke bawah */
       }
 
       .navbar {
@@ -452,7 +445,6 @@
         padding: 14px;
       }
     }
-
   </style>
 </head>
 
