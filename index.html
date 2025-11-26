@@ -53,7 +53,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
     }
 
     .section h1,
@@ -95,6 +94,7 @@
       align-items: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       z-index: 99999;
     }
 
@@ -211,6 +211,7 @@
       transform: translateY(-10px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       padding: 10px 20px;
     }
 
@@ -221,6 +222,7 @@
       padding: 18px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -285,7 +287,6 @@
         rgba(0,0,0,0.70) 88%,
         #0a1419 100%
       );
-      width: 100%;
     }
 
     /* ABOUT */
@@ -341,14 +342,25 @@
 
     @media (max-width: 768px) {
       body {
-        /* biar gak berat dan glitch di mobile */
+        /* mobile: fokus background lebih ke bawah, tapi gak super zoom */
         background-attachment: scroll;
-        background-position: center top;
+        background-size: cover;
+        background-position: center 75%;
+        background-repeat: no-repeat;
       }
 
       .navbar {
-        padding: 8px 14px;
+        padding: 8px 12px;
         font-size: 16px;
+      }
+
+      .nav-left {
+        margin-left: 0;
+      }
+
+      .nav-right {
+        gap: 6px;
+        margin-right: 0;
       }
 
       .nav-left span {
@@ -358,11 +370,6 @@
       .nav-logo {
         width: 40px;
         height: 38px;
-      }
-
-      .nav-right {
-        gap: 6px;
-        margin-right: 0;
       }
 
       .nav-btn {
@@ -443,6 +450,19 @@
 
       .game-card {
         padding: 14px;
+      }
+
+      .navbar {
+        font-size: 14px;
+      }
+
+      .nav-left span {
+        font-size: 14px;
+      }
+
+      .nav-btn {
+        padding: 6px 8px;
+        font-size: 12px;
       }
     }
   </style>
