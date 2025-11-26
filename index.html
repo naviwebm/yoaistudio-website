@@ -26,6 +26,8 @@
   <style>
     html {
       scroll-behavior: smooth;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -38,6 +40,8 @@
       background-attachment: fixed;
       color: white;
       text-align: center;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .section {
@@ -49,6 +53,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
 
     .section h1,
@@ -280,6 +285,7 @@
         rgba(0,0,0,0.70) 88%,
         #0a1419 100%
       );
+      width: 100%;
     }
 
     /* ABOUT */
@@ -439,44 +445,6 @@
         padding: 14px;
       }
     }
-    /* FIX BACKGROUND CROP DI MOBILE */
-    /* FIX UNTUK MOBILE LANDSCAPE */
-    @media (max-width: 900px) and (orientation: landscape) {
-
-      /* Background tidak pakai cover, supaya tidak motong kanan/kiri */
-      body {
-        background-size: contain !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: scroll !important;
-        background-color: #020406 !important; /* supaya ga putih kalau ada sisa */
-        overflow-x: hidden !important;
-      }
-
-      /* Hero jangan 100vh waktu landscape (terlalu tinggi) */
-      #home {
-        min-height: 70vh !important;
-        padding-top: 120px !important;
-      }
-
-      .home-hero {
-        text-align: center !important;
-        align-items: center !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-      }
-
-      /* Judul biar ga terlalu gede di landscape */
-      .hero-title {
-        font-size: 28px !important;
-      }
-
-      .hero-subtitle {
-        font-size: 13px !important;
-      }
-  }
-
-
   </style>
 </head>
 
