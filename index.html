@@ -440,21 +440,42 @@
       }
     }
     /* FIX BACKGROUND CROP DI MOBILE */
-    @media (max-width: 768px) {
+    /* FIX UNTUK MOBILE LANDSCAPE */
+    @media (max-width: 900px) and (orientation: landscape) {
+
+      /* Background tidak pakai cover, supaya tidak motong kanan/kiri */
       body {
         background-size: contain !important;
-        background-position: center top !important;
+        background-position: center center !important;
         background-repeat: no-repeat !important;
         background-attachment: scroll !important;
+        background-color: #020406 !important; /* supaya ga putih kalau ada sisa */
+        overflow-x: hidden !important;
       }
 
-      /* supaya position tidak miring */
+      /* Hero jangan 100vh waktu landscape (terlalu tinggi) */
       #home {
-        background-size: contain !important;
-        background-position: center top !important;
-        background-repeat: no-repeat !important;
+        min-height: 70vh !important;
+        padding-top: 120px !important;
       }
-    }
+
+      .home-hero {
+        text-align: center !important;
+        align-items: center !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      /* Judul biar ga terlalu gede di landscape */
+      .hero-title {
+        font-size: 28px !important;
+      }
+
+      .hero-subtitle {
+        font-size: 13px !important;
+      }
+  }
+
 
   </style>
 </head>
