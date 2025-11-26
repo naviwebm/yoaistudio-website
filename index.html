@@ -341,96 +341,98 @@
 
     @media (max-width: 768px) {
       body {
-        /* mobile: ga pakai fixed, posisi lebih turun biar ga cuma langit */
+        /* mobile: tidak fixed, posisi agak ke bawah + warna sama kayak about */
         background-attachment: scroll;
-        background-position: center 300%; /* geser dikit ke bawah */
+        background-position: center 65%;   /* 40% terlalu atas (awan), 65% lebih ke bawah */
+        background-color: #0a1419;         /* biar sisa bawah sama kayak section gelap */
       }
-
+    
       .navbar {
         padding: 8px 14px;
         font-size: 16px;
       }
-
+    
       .nav-left span {
         font-size: 16px;
       }
-
+    
       .nav-logo {
         width: 40px;
         height: 38px;
       }
-
+    
       .nav-right {
         gap: 6px;
         margin-right: 0;
       }
-
+    
       .nav-btn {
         padding: 6px 10px;
         font-size: 13px;
         box-shadow: none;
       }
-
+    
       .section {
         min-height: auto;
         padding-top: 90px;
         padding-bottom: 40px;
       }
-
+    
       .home-hero {
         align-items: center;
         text-align: center;
         padding-left: 20px;
         padding-right: 20px;
       }
-
+    
       .hero-content {
         max-width: 100%;
       }
-
+    
       .hero-label {
         font-size: 14px;
         letter-spacing: 0.12em;
       }
-
+    
       .hero-title {
         font-size: 30px;
       }
-
+    
       .hero-subtitle {
         font-size: 13px;
       }
-
+    
       #games {
         padding-top: 120px;
       }
-
+    
       #about {
         padding-top: 120px;
       }
-
+    
       .games-wrapper {
         align-items: center;
       }
-
+    
       .game-card {
         width: 100%;
         max-width: 340px;
       }
-
+    
       .game-info {
         text-align: left;
       }
-
+    
       .fade-strip {
         height: 140px;
       }
-
+    
       .about-text {
         font-size: 13px;
         padding: 0 10px;
       }
     }
+
 
     @media (max-width: 480px) {
       .hero-title {
@@ -560,6 +562,7 @@
 
 </body>
 </html>
+
 
 
 
