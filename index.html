@@ -443,7 +443,17 @@
       .game-card {
         padding: 14px;
       }
+      /* ===== FIX HERO BACKGROUND DI MOBILE ===== */
+    @media (max-width: 768px) {
+    
+      #home {
+        background-image: url('artttttyoai.png');
+        background-size: cover;          /* biar tetep gede tapi ga over-zoom */
+        background-position: center 30%; /* <--- TURUN 30%, bisa lo atur */
+        background-repeat: no-repeat;
+      }
     }
+
   </style>
 </head>
 
@@ -559,3 +569,4 @@
 
 </body>
 </html>
+
