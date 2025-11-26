@@ -340,10 +340,12 @@
 
     @media (max-width: 768px) {
       body {
-        /* mobile: ga pakai fixed, posisi lebih turun biar ga cuma langit */
         background-attachment: scroll;
-        background-position: center 40%; /* geser dikit ke bawah */
+        background-size: 110% auto;     /* <— INI ZOOM dikit */
+        background-position: center 30%;/* <— geser sedikit ke bawah */
+        background-repeat: no-repeat;
       }
+    
 
       .navbar {
         padding: 8px 14px;
@@ -569,4 +571,5 @@
 
 </body>
 </html>
+
 
