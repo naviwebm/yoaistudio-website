@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO / META -->
   <meta name="google-site-verification" content="2kQWY0P-1uKyn7OpTuatAwmN0mbzYDT-VPRqSYY7uCM" />
   <meta name="description" content="Yoai Studio — Indie game studio from Indonesia. Creator of Starling Coffee: Tycoon and more upcoming games.">
   <meta name="keywords" content="Yoai Studio, Indie Game, Game Indonesia, Starling Coffee, Tycoon Game, Mobile Game Indonesia">
@@ -11,8 +13,11 @@
   <meta property="og:description" content="Indie game studio from Indonesia — Starling Coffee: Tycoon coming soon on Google Play.">
   <meta property="og:image" content="https://yoaistudio-home.vercel.app/YOAI.png">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yoaistudio-home.vercel.app/">
 
   <title>Yoai Studio</title>
+
+  <!-- ICONS -->
   <link rel="icon" type="image/png" sizes="32x32" href="PaviconYoai.png">
   <link rel="icon" type="image/png" sizes="48x48" href="PaviconYoai.png">
   <link rel="icon" type="image/png" sizes="96x96" href="PaviconYoai.png">
@@ -22,11 +27,11 @@
     html {
       scroll-behavior: smooth;
     }
-      
+
     body {
       margin: 0;
       padding: 0;
-      font-family: Helvetica, sans-serif;
+      font-family: Helvetica, Arial, sans-serif;
       background-image: url('artttttyoai.png');
       background-size: cover;
       background-position: center;
@@ -68,7 +73,7 @@
       padding-top: 160px;
     }
 
-    /* BARRR */
+    /* NAVBAR */
 
     .navbar {
       background-color: rgba(0, 0, 0, 0);
@@ -139,6 +144,10 @@
       padding-right: 20px;
     }
 
+    .hero-content {
+      max-width: 520px;
+    }
+
     .hero-label {
       font-size: 20px;
       letter-spacing: 0.18em;
@@ -184,7 +193,7 @@
       flex-direction: column;
       gap: 24px;
       margin: 0 auto;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .games-title {
@@ -197,6 +206,7 @@
       transform: translateY(-10px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
+      padding: 10px 20px;
     }
 
     .game-card {
@@ -220,6 +230,11 @@
       object-fit: cover;
     }
 
+    .game-info {
+      width: 100%;
+      text-align: left;
+    }
+
     .game-info h3 {
       margin: 0 0 6px;
       font-size: 22px;
@@ -230,11 +245,6 @@
       font-size: 14px;
       color: #d0d0d0;
       max-width: 420px;
-    }
-
-    .game-card,
-    .game-info {
-      text-align: left;
     }
 
     .play-btn {
@@ -297,7 +307,7 @@
       margin: 30px auto;
     }
 
-    /* ANIMASI */
+    /* ANIMATIONS */
 
     @keyframes slideInLeft {
       0% {
@@ -321,17 +331,112 @@
       }
     }
 
-    /*  RESPONSIVE  */
+    /* RESPONSIVE */
 
     @media (max-width: 768px) {
+      body {
+        /* biar gak berat dan glitch di mobile */
+        background-attachment: scroll;
+        background-position: center top;
+      }
+
+      .navbar {
+        padding: 8px 14px;
+        font-size: 16px;
+      }
+
+      .nav-left span {
+        font-size: 16px;
+      }
+
+      .nav-logo {
+        width: 40px;
+        height: 38px;
+      }
+
+      .nav-right {
+        gap: 6px;
+        margin-right: 0;
+      }
+
+      .nav-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+        box-shadow: none;
+      }
+
+      .section {
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: 40px;
+      }
+
       .home-hero {
         align-items: center;
+        text-align: center;
         padding-left: 20px;
         padding-right: 20px;
       }
 
       .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-label {
+        font-size: 14px;
+        letter-spacing: 0.12em;
+      }
+
+      .hero-title {
+        font-size: 30px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      #games {
+        padding-top: 120px;
+      }
+
+      #about {
+        padding-top: 120px;
+      }
+
+      .games-wrapper {
+        align-items: center;
+      }
+
+      .game-card {
         width: 100%;
+        max-width: 340px;
+      }
+
+      .game-info {
+        text-align: left;
+      }
+
+      .fade-strip {
+        height: 140px;
+      }
+
+      .about-text {
+        font-size: 13px;
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 26px;
+      }
+
+      .games-title {
+        font-size: 22px;
+      }
+
+      .game-card {
+        padding: 14px;
       }
     }
   </style>
@@ -370,7 +475,7 @@
     </div>
   </section>
 
-  <!--TRANSISI-->
+  <!-- TRANSITION -->
   <div class="fade-strip"></div>
 
   <!-- OUR GAMES -->
@@ -403,7 +508,6 @@
       <p class="about-text">
         Yoai Studio is an indie game studio that focuses on creating simple, fun gaming experiences with a local touch.
         We believe that games can feel close to players if they have strong characters, relatable stories, and visually appealing graphics.
-      
       </p>
 
       <div class="divider"></div>
@@ -450,5 +554,3 @@
 
 </body>
 </html>
-
-
