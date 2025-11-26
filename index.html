@@ -439,6 +439,23 @@
         padding: 14px;
       }
     }
+    /* FIX BACKGROUND CROP DI MOBILE */
+    @media (max-width: 768px) {
+      body {
+        background-size: contain !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+      }
+
+      /* supaya position tidak miring */
+      #home {
+        background-size: contain !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+      }
+    }
+
   </style>
 </head>
 
